@@ -23,8 +23,8 @@ public class TestConversor {
         }
         
         double resultado = ConversorDeMoneda.Convertir(monedaInicial, monedaFinal, valor);
-        System.out.println(resultado);
-	    JOptionPane.showMessageDialog(null, "Tienes $" + resultado, "Resultado", JOptionPane.PLAIN_MESSAGE);
+        //System.out.println(resultado);
+	    JOptionPane.showMessageDialog(null, "Tienes $" + resultado + " " + monedaFinal, "Resultado", JOptionPane.PLAIN_MESSAGE);
 
 	}
 
