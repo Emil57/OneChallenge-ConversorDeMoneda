@@ -1,6 +1,8 @@
 package proyecto;
 import java.util.HashMap;
 
+import javax.swing.JOptionPane;
+
 public class ConversorDeMoneda extends Conversor {	
 	
 	public static String[] monedas = {"MXN", 
@@ -19,9 +21,19 @@ public class ConversorDeMoneda extends Conversor {
     }};
 		
     public static double Convertir(String monedaInicial, String monedaFinal, double valorInicial) {
-		double valorFinal = TiposDeCambioParaMXN.get(monedaInicial)/TiposDeCambioParaMXN.get(monedaInicial)*valorInicial;
+     	double valorFinal = 0;
+    	if(monedaInicial.equals(monedaFinal)) {
+    		JOptionPane.showMessageDialog(null, "No puedes convertir monedas iguales.","Advertencia", JOptionPane.WARNING_MESSAGE);
+            return 0;
+    	}
+    	else if(monedaInicial.equals("MXN")) {
+    		valorFinal = valorInicial/TiposDeCambioParaMXN.get(monedaFinal);
+    	}
+    	else {
+    	     valorFinal = TiposDeCambioParaMXN.get(monedaInicial)/TiposDeCambioParaMXN.get(monedaInicial)*valorInicial;
+    	}
 		
-		return Math.round(valorFinal*100.0/100.0); //redondear a dos decimales
+		return valorFinal; //redondear a dos decimales
 	}
 
 }
