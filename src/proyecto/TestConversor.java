@@ -7,7 +7,8 @@ public class TestConversor {
 	public static void main(String[] args) {
 		Conversor conversor = new Conversor();
 		String concatenacion = " ";
-		
+		DecimalFormat df = new DecimalFormat("#.##");
+
         boolean check = true;
         do {
         	// Show a simple message dialog box
@@ -30,7 +31,8 @@ public class TestConversor {
                      }
                      if(conversor.valorParaConvertir!=0) {
                     	conversor.valorConvertido = ConversorDeMoneda.Convertir(conversor.unidadInicial, conversor.unidadFinal, conversor.valorParaConvertir);                         
-                 	    concatenacion = ConversorDeMoneda.SimbolosMonetarios.get(conversor.unidadInicial) 
+                        conversor.valorConvertido = Double.parseDouble(df.format(conversor.valorConvertido));
+                    	concatenacion = ConversorDeMoneda.SimbolosMonetarios.get(conversor.unidadInicial) 
                  	    		+ conversor.valorParaConvertir 
                  	    		+ " --> " 
                  	    		+ ConversorDeMoneda.SimbolosMonetarios.get(conversor.unidadFinal) 
@@ -54,18 +56,19 @@ public class TestConversor {
 	                
 	                if(conversor.valorParaConvertir!=0) {
 		                conversor.valorConvertido = ConversorDeTemperatura.ConversionDeTemperatura(conversor.unidadInicial, conversor.unidadFinal, conversor.valorParaConvertir);
-                	    concatenacion = conversor.valorParaConvertir 
+		                conversor.valorConvertido = Double.parseDouble(df.format(conversor.valorConvertido));
+		                concatenacion = conversor.valorParaConvertir 
                 	    		+ " "
                 	    		+ ConversorDeTemperatura.SimbolosDeUnidades.get(conversor.unidadInicial)  
                 	    		+ " --> " 
                 	    		+ conversor.valorConvertido 
                 	    		+ " "
                  	    		+ ConversorDeTemperatura.SimbolosDeUnidades.get(conversor.unidadFinal);
-                    }  
+                    }
         		break;
             }
             
-            MostrarResultado(concatenacion, conversor.valorConvertido, conversor);
+            JOptionPane.showMessageDialog(null, concatenacion, "Resultado", JOptionPane.PLAIN_MESSAGE); 
     	    int ciclo = JOptionPane.showConfirmDialog(null, "¿Deseas hacer otra conversion?", "Conversor de Moneda",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (ciclo == JOptionPane.NO_OPTION) {
@@ -75,12 +78,5 @@ public class TestConversor {
         }while(check);
 	    
 	}
-	
-	public static void MostrarResultado(String concatenacion, double resultado, Conversor conversor) {
-		DecimalFormat df = new DecimalFormat("#.##");
-        conversor.valorConvertido = Double.parseDouble(df.format(conversor.valorConvertido));
-        JOptionPane.showMessageDialog(null, concatenacion, "Resultado", JOptionPane.PLAIN_MESSAGE); 
-
-	}
-	
+		
 }
