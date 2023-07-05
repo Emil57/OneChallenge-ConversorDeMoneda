@@ -2,6 +2,8 @@ package proyecto;
 
 import java.util.HashMap;
 
+import javax.swing.JOptionPane;
+
 public class ConversorDeTemperatura extends Conversor {
 	
 	public static String[] unidadesDeTemperatura = 
@@ -20,7 +22,7 @@ public class ConversorDeTemperatura extends Conversor {
 	public static double ConversionDeTemperatura(String unidadInicial, String unidadFinal, double conversionInicial) {
 		double conversionFinal=0.0;
 		if(unidadInicial.equals(unidadFinal)) {
-			System.out.println("No puedes convertir unidades iguales");
+    		JOptionPane.showMessageDialog(null, "No puedes convertir monedas iguales.","Advertencia", JOptionPane.WARNING_MESSAGE);
 			return 0;
 		}
 		switch(unidadInicial) {
