@@ -2,8 +2,17 @@ package proyecto;
 import javax.swing.JOptionPane;
 import java.text.DecimalFormat;
 
+/**
+ * Aqui se encuentra la clase que llama a los métodos de conversion
+ * @author DimasEmiliano
+ *
+ */
 public class TestConversor {
-
+	
+	/**
+	 * Metodo principal donde se corre el conversor de moneda y temperatura
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Conversor conversor = new Conversor();
 		String concatenacion = " ";

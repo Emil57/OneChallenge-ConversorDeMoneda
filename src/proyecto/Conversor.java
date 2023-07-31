@@ -1,5 +1,10 @@
 package proyecto;
 
+/**
+ * Clase del conversor principal implementada para objetos temperatura y moneda
+ * @author DimasEmiliano
+ * 
+ */
 public class Conversor {
 	
 	public String unidadInicial;

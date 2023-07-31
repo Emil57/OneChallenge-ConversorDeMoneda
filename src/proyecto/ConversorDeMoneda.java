@@ -1,8 +1,11 @@
 package proyecto;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-
-
+/**
+ * Clase padre para conversion de moneda.
+ * @author DimasEmiliano
+ *
+ */
 public class ConversorDeMoneda extends Conversor {	
 	
 	public static String[] monedas = {"MXN", 
@@ -12,8 +15,8 @@ public class ConversorDeMoneda extends Conversor {
 			"Yen Japones",
 			"Won sul-coreano"
 			};
+	
 	public static HashMap<String, Double> TiposDeCambioParaMXN = new HashMap<String, Double>() {private static final long serialVersionUID = 1L;
-
 	{
         put(monedas[1], 17.05);
         put(monedas[2], 18.61);
@@ -32,6 +35,13 @@ public class ConversorDeMoneda extends Conversor {
         put(monedas[5], "₩");
     }};	
     
+    /**
+     * Convierte tipo de cambio para monedas dados los parámetros iniciales.
+     * @param monedaInicial
+     * @param monedaFinal
+     * @param valorInicial
+     * @return
+     */
     public static double Convertir(String monedaInicial, String monedaFinal, double valorInicial) {
      	double valorFinal = 0;
     	if(monedaInicial.equals(monedaFinal)) {
